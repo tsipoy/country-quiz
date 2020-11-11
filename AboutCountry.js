@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const nameUrl = `https://restcountries.eu/rest/v2`
+const nameUrl = `https://restcountries.eu/rest/v2/name/eesti`;
 
 function AboutCountry() {
 
@@ -18,7 +18,7 @@ function AboutCountry() {
             let eachCountry = Math.floor(Math.random() * country.length);
             let randomCountry = country[eachCountry].name;
             console.log(randomCountry);
-            // setCountryName(country);
+            setCountryName(country);
         } catch (e) {
             console.error(e)
         }
@@ -37,7 +37,7 @@ function AboutCountry() {
                     <h2 key={country.name}>{`${country.capital} is the capital of:`} </h2>
                 )
             })}
-            <h3>{`${countryName.capital} is the capital of : `}</h3>
+            {/* <h3>{`${countryName.capital} is the capital of : `}</h3> */}
             <button onClick={nextBtn}><span>A</span>Vietnam</button>
             <button onClick={nextBtn}><span>B</span>Malaysia</button>
             <button onClick={nextBtn}><span>C</span>Sweden</button>
