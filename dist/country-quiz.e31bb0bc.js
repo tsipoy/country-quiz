@@ -29816,7 +29816,7 @@ function AboutCountry() {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, countryName.map(country => {
-    return /*#__PURE__*/_react.default.createElement("h2", {
+    return /*#__PURE__*/_react.default.createElement("h3", {
       key: country.name
     }, `${country.capital} is the capital of:`, " ");
   }), /*#__PURE__*/_react.default.createElement("button", {

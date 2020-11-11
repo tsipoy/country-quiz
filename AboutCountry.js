@@ -34,7 +34,7 @@ function AboutCountry() {
 
             {countryName.map((country) => {
                 return (
-                    <h2 key={country.name}>{`${country.capital} is the capital of:`} </h2>
+                    <h3 key={country.name}>{`${country.capital} is the capital of:`} </h3>
                 )
             })}
             {/* <h3>{`${countryName.capital} is the capital of : `}</h3> */}
