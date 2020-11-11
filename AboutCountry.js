@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const nameUrl = `https://restcountries.eu/rest/v2/name/united`;
+const nameUrl = `https://restcountries.eu/rest/v2/all`;
 
 function AboutCountry() {
 
     const [countryName, setCountryName] = useState([]);
+    const [random, setRandom] = useState(0);
     const [next, setNext] = useState(true);
 
     const nextBtn = () => {
@@ -15,23 +16,25 @@ function AboutCountry() {
         try {
             const response = await fetch(nameUrl);
             const country = await response.json();
-            setCountryName(country);
+            let eachCountry = Math.floor(Math.random() * country.length);
+            let randomCountry = country[eachCountry].name;
+            console.log(randomCountry);
+            // setCountryName(country);
+            setRandom(randomCountry);
         } catch (e) {
             console.error(e)
         }
     }
 
     useEffect(() => {
-        getName(countryName);
+        getName();
     }, [])
-
-    // if(!countryName.name ) return null
 
     return (
         <div className="wrapper">
             {countryName.map((country) => {
                 return (
-                    <h3 key={country.callingCodes}>{country.name} is the capital of:</h3>
+                    <h3 key={country.name} onChange={() => getName()}>{country.name} is the capital of:</h3>
                 )
             })}
             <button onClick={nextBtn}><span>A</span>Vietnam</button>

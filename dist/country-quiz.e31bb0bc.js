@@ -29786,10 +29786,11 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const nameUrl = `https://restcountries.eu/rest/v2/name/united`;
+const nameUrl = `https://restcountries.eu/rest/v2/all`;
 
 function AboutCountry() {
   const [countryName, setCountryName] = (0, _react.useState)([]);
+  const [random, setRandom] = (0, _react.useState)(0);
   const [next, setNext] = (0, _react.useState)(true);
 
   const nextBtn = () => {
@@ -29800,21 +29801,25 @@ function AboutCountry() {
     try {
       const response = await fetch(nameUrl);
       const country = await response.json();
-      setCountryName(country);
+      let eachCountry = Math.floor(Math.random() * country.length);
+      let randomCountry = country[eachCountry].name;
+      console.log(randomCountry); // setCountryName(country);
+
+      setRandom(randomCountry);
     } catch (e) {
       console.error(e);
     }
   };
 
   (0, _react.useEffect)(() => {
-    getName(countryName);
-  }, []); // if(!countryName.name ) return null
-
+    getName();
+  }, []);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, countryName.map(country => {
     return /*#__PURE__*/_react.default.createElement("h3", {
-      key: country.callingCodes
+      key: country.name,
+      onChange: () => getName()
     }, country.name, " is the capital of:");
   }), /*#__PURE__*/_react.default.createElement("button", {
     onClick: nextBtn
@@ -29895,7 +29900,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62978" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58887" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
