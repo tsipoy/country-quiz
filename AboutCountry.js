@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-const nameUrl = `https://restcountries.eu/rest/v2/all`;
+const nameUrl = `https://restcountries.eu/rest/v2`
 
 function AboutCountry() {
 
     const [countryName, setCountryName] = useState([]);
-    const [random, setRandom] = useState(0);
+    // const [random, setRandom] = useState(0);
     const [next, setNext] = useState(true);
 
     const nextBtn = () => {
         setNext(!next)
     }
-
     const getName = async () => {
         try {
             const response = await fetch(nameUrl);
@@ -20,7 +19,6 @@ function AboutCountry() {
             let randomCountry = country[eachCountry].name;
             console.log(randomCountry);
             // setCountryName(country);
-            setRandom(randomCountry);
         } catch (e) {
             console.error(e)
         }
@@ -30,13 +28,16 @@ function AboutCountry() {
         getName();
     }, [])
 
+
     return (
         <div className="wrapper">
+
             {countryName.map((country) => {
                 return (
-                    <h3 key={country.name} onChange={() => getName()}>{country.name} is the capital of:</h3>
+                    <h2 key={country.name}>{`${country.capital} is the capital of:`} </h2>
                 )
             })}
+            <h3>{`${countryName.capital} is the capital of : `}</h3>
             <button onClick={nextBtn}><span>A</span>Vietnam</button>
             <button onClick={nextBtn}><span>B</span>Malaysia</button>
             <button onClick={nextBtn}><span>C</span>Sweden</button>
@@ -46,7 +47,6 @@ function AboutCountry() {
                     <button onClick={() => getName()} className="nextBtn">Next</button>
                 }
             </div>
-
         </div>
     )
 }

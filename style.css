@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-image: url('./background.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 /* #root {
@@ -12,11 +12,15 @@ body {
 } */
 
 .wrapper {
+    background-image: url('./undraw_adventure_4hum.svg');
+    background-repeat: no-repeat;
+    background-position: right 14px;
     max-width: 400px;
     margin: auto;
     background-color: white;
     padding: 2rem;
     padding-block-end: 4rem;
+    padding-block-start: 10rem;
     border-radius: 24px;
 }
 

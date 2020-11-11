@@ -34,7 +34,7 @@ Template for your readme :
 
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">{Country quiz}</h1>
 
 <div align="center">
   <h3>
@@ -100,11 +100,10 @@ $ npm start
 ```
 
 ## Acknowledgements
-
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
 ## Contact
 
--   Website [your-website.com](https://{your-web-site-link})
--   GitHub [@your-username](https://{github.com/your-usermame})
+-   Website [your-website.com](https://country-quiz-natacha.netlify.app/)
+-   GitHub [@your-username](https://github.com/tsipoy/country-quiz)
 -   Twitter [@your-twitter](https://{twitter.com/your-username})
