@@ -1,13 +1,12 @@
 import React from "react";
 import AboutCountry from "./AboutCountry";
-// import Draft from "./Draft"
+// import Result from "./Result"
 
 function App() {
     return(
         <div>
             <h1>Country Quiz</h1>
             <AboutCountry />
-            {/* < Draft /> */}
         </div>
     )
 }

@@ -1,11 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Result() {
     return (
-        <div>
-            <h2>Results</h2>
-            <p>You got 0 correct answers</p>
-            <button>Try again</button>
+        <div className="result ">
+            <div>
+                <h2>Results</h2>
+                <h4>You got 0 correct answers</h4> 
+            </div>
+            <Link to="/">
+                <p>Try again</p>
+            </Link>
         </div>
     )
 }
