@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Result from "./Result"
 import { Link, Route, Switch } from "react-router-dom";
 
-const all_url = `https://restcountries.eu/rest/v2/all`;
-const choiceA = `https://restcountries.eu/rest/v2/name/qatar`;
-const choiceB = `https://restcountries.eu/rest/v2/name/brazil`;
+const all_url = `https://restcountries.eu/rest/v2/name/madagascar`;
+const choiceA = `https://restcountries.eu/rest/v2/name/eesti`;
+const choiceB = `https://restcountries.eu/rest/v2/name/bolivia`;
 const choiceC = `https://restcountries.eu/rest/v2/name/name`;
 const choiceD = `https://restcountries.eu/rest/v2/name/angola`
 
@@ -27,6 +27,19 @@ function AboutCountry() {
         "Which countries this flag belong to"
     ]
 
+    const countries = [
+        "Afghanistan",
+        "Bahamas",
+        "Cabo Verde",
+        "Denmark",
+        "Ecuador",
+        "Fiji",
+        "Gabon",
+        "Haiti",
+        "Iceland",
+        "Jamaica",
+    ]
+
     const changingQuestion = () => {
         const randomQuestions = questions[Math.floor(Math.random() * questions.length)];
         console.log(randomQuestions)
@@ -40,11 +53,12 @@ function AboutCountry() {
         try {
             const response = await fetch(all_url);
             const country = await response.json();
+
             let eachCountry = Math.floor(Math.random() * country.length);
-            let randomCountry = country[eachCountry].capital;
-            console.log(randomCountry);
-            setRandomCountryName(randomCountry)
+            let randomCountryName = country[eachCountry].capital;
+            console.log(randomCountryName);
             setCountryName(country);
+            return setRandomCountryName({randomCountryName})
         } catch (e) {
             console.error(e)
         }
@@ -54,6 +68,10 @@ function AboutCountry() {
         try {
             const response = await fetch(choiceA);
             const country = await response.json();
+            let eachCountry = Math.floor(Math.random() * country.length);
+            let randomCountry = country[eachCountry].capital;
+            console.log(randomCountry);
+            setRandomCountryName(randomCountry)
             setFirstChoice(country);
         } catch (e) {
             console.error(e)
@@ -64,6 +82,10 @@ function AboutCountry() {
         try {
             const response = await fetch(choiceB);
             const country = await response.json();
+            let eachCountry = Math.floor(Math.random() * country.length);
+            let randomCountry = country[eachCountry].capital;
+            console.log(randomCountry);
+            setRandomCountryName(randomCountry)
             setSecondChoice(country);
         } catch (e) {
             console.error(e)
@@ -74,6 +96,10 @@ function AboutCountry() {
         try {
             const response = await fetch(choiceC);
             const country = await response.json();
+            let eachCountry = Math.floor(Math.random() * country.length);
+            let randomCountry = country[eachCountry].capital;
+            console.log(randomCountry);
+            setRandomCountryName(randomCountry)
             setThirdChoice(country);
         } catch (e) {
             console.error(e)
@@ -84,6 +110,10 @@ function AboutCountry() {
         try {
             const response = await fetch(choiceD);
             const country = await response.json();
+            let eachCountry = Math.floor(Math.random() * country.length);
+            let randomCountry = country[eachCountry].capital;
+            console.log(randomCountry);
+            setRandomCountryName(randomCountry)
             setFourthChoice(country);
         } catch (e) {
             console.error(e)
@@ -106,41 +136,43 @@ function AboutCountry() {
             <div className="wrapper">
                 {countryName.map((country) => {
                     return (
-                        <h3 key={country.name} onChange={changingQuestion}>{`${country.capital} is the capital of:`} </h3>
+                        <h3 key={country.name}>
+                            {questions[Math.floor(Math.random() * questions.length)]}
+                        </h3>
                     )
                 })}
                 <div onClick={nextBtn}>
                     {firstChoice.map((country) => {
                         return (
-                            <button key={country.name} ><span>A</span>{country.name}</button>
+                            <button key={country.name} ><span>A</span>{countries[Math.floor(Math.random() * countries.length)]}</button>
                         )
                     })}
 
                     {secondChoice.map((country) => {
                         return (
-                            <button key={country.name} ><span>B</span>{country.name}</button>
+                            <button key={country.name} ><span>B</span>{countries[Math.floor(Math.random() * countries.length)]}</button>
                         )
                     })}
 
                     {thirdChoice.map((country) => {
                         return (
-                            <button key={country.name} ><span>A</span>{country.name}</button>
+                            <button key={country.name} ><span>C</span>{countries[Math.floor(Math.random() * countries.length)]}</button>
                         )
                     })}
 
                     {fourthChoice.map((country) => {
                         return (
-                            <button key={country.name} ><span>A</span>{country.name}</button>
+                            <button key={country.name} ><span>D</span>{countries[Math.floor(Math.random() * countries.length)]}</button>
                         )
                     })}
-                    <button><span>B</span>Malaysia</button>
+                    {/* <button><span>B</span>Malaysia</button>
                     <button><span>C</span>Sweden</button>
-                    <button><span>D</span>Austria</button>
+                    <button><span>D</span>Austria</button> */}
                 </div>
                 <div className="btnWrapper">
                     {!next &&
                         <Link to="/result">
-                            <p onClick={() => getName()} className="nextBtn">Next</p>
+                            <button onClick={() => getName()} className="nextBtn">Next</button>
                         </Link>
                     }
                 </div>

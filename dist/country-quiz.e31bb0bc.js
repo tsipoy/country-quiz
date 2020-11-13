@@ -33861,18 +33861,24 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Result() {
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Country quiz"), /*#__PURE__*/_react.default.createElement("div", {
     className: "result "
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("h4", null, "You got 0 correct answers")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("h4", null, "You got ", /*#__PURE__*/_react.default.createElement("span", {
+    className: "score"
+  }, "0"), " correct answers"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Try again")));
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    className: "resultBtn"
+  }, "Try again")))));
 }
 
 var _default = Result;
@@ -33897,9 +33903,9 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const all_url = `https://restcountries.eu/rest/v2/all`;
-const choiceA = `https://restcountries.eu/rest/v2/name/qatar`;
-const choiceB = `https://restcountries.eu/rest/v2/name/brazil`;
+const all_url = `https://restcountries.eu/rest/v2/name/madagascar`;
+const choiceA = `https://restcountries.eu/rest/v2/name/eesti`;
+const choiceB = `https://restcountries.eu/rest/v2/name/bolivia`;
 const choiceC = `https://restcountries.eu/rest/v2/name/name`;
 const choiceD = `https://restcountries.eu/rest/v2/name/angola`;
 
@@ -33912,6 +33918,7 @@ function AboutCountry() {
   const [thirdChoice, setThirdChoice] = (0, _react.useState)([]);
   const [fourthChoice, setFourthChoice] = (0, _react.useState)([]);
   const questions = ["is the capital of:", "Which countries this flag belong to"];
+  const countries = ["Afghanistan", "Bahamas", "Cabo Verde", "Denmark", "Ecuador", "Fiji", "Gabon", "Haiti", "Iceland", "Jamaica"];
 
   const changingQuestion = () => {
     const randomQuestions = questions[Math.floor(Math.random() * questions.length)];
@@ -33927,10 +33934,12 @@ function AboutCountry() {
       const response = await fetch(all_url);
       const country = await response.json();
       let eachCountry = Math.floor(Math.random() * country.length);
-      let randomCountry = country[eachCountry].capital;
-      console.log(randomCountry);
-      setRandomCountryName(randomCountry);
+      let randomCountryName = country[eachCountry].capital;
+      console.log(randomCountryName);
       setCountryName(country);
+      return setRandomCountryName({
+        randomCountryName
+      });
     } catch (e) {
       console.error(e);
     }
@@ -33940,6 +33949,10 @@ function AboutCountry() {
     try {
       const response = await fetch(choiceA);
       const country = await response.json();
+      let eachCountry = Math.floor(Math.random() * country.length);
+      let randomCountry = country[eachCountry].capital;
+      console.log(randomCountry);
+      setRandomCountryName(randomCountry);
       setFirstChoice(country);
     } catch (e) {
       console.error(e);
@@ -33950,6 +33963,10 @@ function AboutCountry() {
     try {
       const response = await fetch(choiceB);
       const country = await response.json();
+      let eachCountry = Math.floor(Math.random() * country.length);
+      let randomCountry = country[eachCountry].capital;
+      console.log(randomCountry);
+      setRandomCountryName(randomCountry);
       setSecondChoice(country);
     } catch (e) {
       console.error(e);
@@ -33960,6 +33977,10 @@ function AboutCountry() {
     try {
       const response = await fetch(choiceC);
       const country = await response.json();
+      let eachCountry = Math.floor(Math.random() * country.length);
+      let randomCountry = country[eachCountry].capital;
+      console.log(randomCountry);
+      setRandomCountryName(randomCountry);
       setThirdChoice(country);
     } catch (e) {
       console.error(e);
@@ -33970,6 +33991,10 @@ function AboutCountry() {
     try {
       const response = await fetch(choiceD);
       const country = await response.json();
+      let eachCountry = Math.floor(Math.random() * country.length);
+      let randomCountry = country[eachCountry].capital;
+      console.log(randomCountry);
+      setRandomCountryName(randomCountry);
       setFourthChoice(country);
     } catch (e) {
       console.error(e);
@@ -33988,32 +34013,31 @@ function AboutCountry() {
     className: "wrapper"
   }, countryName.map(country => {
     return /*#__PURE__*/_react.default.createElement("h3", {
-      key: country.name,
-      onChange: changingQuestion
-    }, `${country.capital} is the capital of:`, " ");
+      key: country.name
+    }, questions[Math.floor(Math.random() * questions.length)]);
   }), /*#__PURE__*/_react.default.createElement("div", {
     onClick: nextBtn
   }, firstChoice.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
       key: country.name
-    }, /*#__PURE__*/_react.default.createElement("span", null, "A"), country.name);
+    }, /*#__PURE__*/_react.default.createElement("span", null, "A"), countries[Math.floor(Math.random() * countries.length)]);
   }), secondChoice.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
       key: country.name
-    }, /*#__PURE__*/_react.default.createElement("span", null, "B"), country.name);
+    }, /*#__PURE__*/_react.default.createElement("span", null, "B"), countries[Math.floor(Math.random() * countries.length)]);
   }), thirdChoice.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
       key: country.name
-    }, /*#__PURE__*/_react.default.createElement("span", null, "A"), country.name);
+    }, /*#__PURE__*/_react.default.createElement("span", null, "C"), countries[Math.floor(Math.random() * countries.length)]);
   }), fourthChoice.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
       key: country.name
-    }, /*#__PURE__*/_react.default.createElement("span", null, "A"), country.name);
-  }), /*#__PURE__*/_react.default.createElement("button", null, /*#__PURE__*/_react.default.createElement("span", null, "B"), "Malaysia"), /*#__PURE__*/_react.default.createElement("button", null, /*#__PURE__*/_react.default.createElement("span", null, "C"), "Sweden"), /*#__PURE__*/_react.default.createElement("button", null, /*#__PURE__*/_react.default.createElement("span", null, "D"), "Austria")), /*#__PURE__*/_react.default.createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("span", null, "D"), countries[Math.floor(Math.random() * countries.length)]);
+  })), /*#__PURE__*/_react.default.createElement("div", {
     className: "btnWrapper"
   }, !next && /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/result"
-  }, /*#__PURE__*/_react.default.createElement("p", {
+  }, /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => getName(),
     className: "nextBtn"
   }, "Next")))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -34086,7 +34110,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55029" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58601" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

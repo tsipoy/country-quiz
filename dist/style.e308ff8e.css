@@ -5,6 +5,9 @@ body {
     background-size: 100% 100%;
 }
 
+html {
+    font-family: 'Poppins', sans-serif;
+}
 /* #root {
     background-image: url('./undraw_adventure_4hum.svg');
     background-repeat: no-repeat;
@@ -14,7 +17,7 @@ body {
 .wrapper {
     background-image: url('/undraw_adventure_4hum.134ba6b2.svg');
     background-repeat: no-repeat;
-    background-position: right 14px;
+    background-position-x: right;
     max-width: 400px;
     margin: auto;
     background-color: white;
@@ -64,6 +67,12 @@ span {
     padding-inline-end: 46px;
 }
 
+.score {
+    color: yellowgreen;
+    font-size: 24px;
+    padding-inline-end: 0;
+}
+
 .btnWrapper {
     position: relative;
 }
@@ -102,20 +111,20 @@ span {
     text-align: center;
 }
 
-.result p {
-    padding-inline-end: 30px;
-    padding-inline-start: 30px;
-    text-align: center;
-    max-width: max-content;
+.resultBtn {
     font-size: 18px;
     line-height: 27px;
     padding-block-start: 15px;
     padding-block-end: 16px;
+    width: auto;
+    text-align: start;
     border-radius: 12px;
     margin-block-end: 25px;
     background-color: white;
     color: rgba(96, 102, 208, 0.8);
     border: 2px solid rgba(96, 102, 208, 0.7);
+    padding-inline-end: 31px;
+    padding-inline-start: 31px;
 }
 
 a {

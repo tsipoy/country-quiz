@@ -34,7 +34,7 @@ Template for your readme :
 
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Country quiz}</h1>
+<h1 align="center">Country quiz</h1>
 
 <div align="center">
   <h3>
@@ -63,20 +63,52 @@ Template for your readme :
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](./second-page.png)
+![screenshot](./first-page.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+
+<!-- Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
 -   Where can I see your demo?
 -   What was your experience?
 -   What have you learned/improved?
--   Your wisdom? :)
+-   Your wisdom? :) -->
+
+### Structure of the project.
+
+#### I had two components : 
+- AboutCountry  
+- Result
+
+#### In the *AboutCountry* component: 
+- Imported urls from API
+- Created function which contains: states, random functions and an array that handle two questions. I use *useEffect()* for passing all of the functions that I have created before.
+- I aslo tried to use *Math.random()* to random the data that I get from the API.
+- Finally, mapping over arrays inside the return.
+
+### If I had more time,
+
+I would like continuing to search a way to get the random working in the page but not only in console.log() before I will move on. Because, I can't countue get I did't get even the random country name or capital work.
+
+### Did you learn anything new while working on this project?
+
+I did't learn so much as I got stuck from the begining. 
+
+### The most challenging parts
+Most of the parts are challenging for me. What I mean is that I always have difficulties about the logic, on what I should use. For example, I can get an array or objects when I console but I can't get it with states.
+Yet, I still need more practice.
+
+### I would like to have more explanation about: 
+- Displaying functions in states. I always got (undefined);
+- Sometimes, we map when we want to get data from API but in some cases we don't need to map. It is still a bit blurry.
+- Using data from API.
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 -   [React](https://reactjs.org/)
+-   [css](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 ## Features
 
@@ -100,10 +132,14 @@ $ npm start
 ```
 
 ## Acknowledgements
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
+
+
 
 ## Contact
 
 -   Website [your-website.com](https://country-quiz-natacha.netlify.app/)
 -   GitHub [@your-username](https://github.com/tsipoy/country-quiz)
 -   Twitter [@your-twitter](https://{twitter.com/your-username})
+
+
+
