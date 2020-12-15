@@ -57,19 +57,20 @@ function App() {
     const rightAnswer = randomCountry.name;
     const guess = e.target.value;
     console.log(guess);
+    document.getElementById(rightAnswer).style.backgroundColor = "#81c784";
     if (rightAnswer === guess) {
       setCorrectAnswer(correctAnswer + 1);
-      setAnswerBg({ backgroundColor: "green" });
       setIsClicked(true);
       setAllCountries(allCountries);
     } else {
+      e.target.classList.add("wrongAnswer")
       setIsClicked(false);
-      setAnswerBg({ backgroundColor: "red" });
     }
     setTimeout(() => {
       setQwestions(questions + 1);
-    });
+    }, 10000);
   }
+
   return (
     <div>
       <h1>Country Quiz</h1>
@@ -82,10 +83,15 @@ function App() {
             randomOption={randomOption}
             answerBg={answerBg}
             getAnswer={getAnswer}
+            isClicked={isClicked}
+            getRandomCountry={getRandomCountry}
         />
         </Route>
         <Route path="/result">
-          <Result correctAnswer={correctAnswer}/>
+          <Result 
+            correctAnswer={correctAnswer}
+            getRandomCountry={getRandomCountry}
+          />
         </Route>
       </Switch>
     </div>

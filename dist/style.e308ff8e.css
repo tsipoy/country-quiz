@@ -69,6 +69,10 @@ button {
     background-color: red;
 }
 
+.wrongAnswer {
+    background-color: #FF8A65;
+}
+
 span {
     font-size: 18px;
     line-height: 27px;

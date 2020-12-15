@@ -33874,7 +33874,9 @@ function AboutCountry({
   questions,
   randomOption,
   answerBg,
-  getAnswer
+  getAnswer,
+  isClicked,
+  getRandomCountry
 }) {
   return /*#__PURE__*/_react.default.createElement("div", null, randomCountry && /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
@@ -33883,16 +33885,20 @@ function AboutCountry({
     alt: randomCountry?.name
   }), /*#__PURE__*/_react.default.createElement("h2", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOption && randomOption.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
-      style: answerBg,
       key: country?.name,
       value: country?.name,
+      id: country?.name,
       onClick: getAnswer
     }, country?.name);
-  })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  })), /*#__PURE__*/_react.default.createElement("div", null, isClicked ? /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
+    onClick: getRandomCountry,
+    className: "nextBtn"
+  }, "Next") : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/result"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "nextBtn"
-  }, "Next"))));
+  }, "Next")))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"Result.js":[function(require,module,exports) {
 "use strict";
@@ -33911,7 +33917,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Result({
-  correctAnswer
+  correctAnswer,
+  getRandomCountry
 }) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "result "
@@ -33920,7 +33927,8 @@ function Result({
   }, correctAnswer), " correct answers"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, /*#__PURE__*/_react.default.createElement("button", {
-    className: "resultBtn"
+    className: "resultBtn",
+    onClick: getRandomCountry
   }, "Try again")))));
 }
 
@@ -33995,24 +34003,20 @@ function App() {
     const rightAnswer = randomCountry.name;
     const guess = e.target.value;
     console.log(guess);
+    document.getElementById(rightAnswer).style.backgroundColor = "#81c784";
 
     if (rightAnswer === guess) {
       setCorrectAnswer(correctAnswer + 1);
-      setAnswerBg({
-        backgroundColor: "green"
-      });
       setIsClicked(true);
       setAllCountries(allCountries);
     } else {
+      e.target.classList.add("wrongAnswer");
       setIsClicked(false);
-      setAnswerBg({
-        backgroundColor: "red"
-      });
     }
 
     setTimeout(() => {
       setQwestions(questions + 1);
-    });
+    }, 10000);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -34023,11 +34027,14 @@ function App() {
     questions: questions,
     randomOption: randomOption,
     answerBg: answerBg,
-    getAnswer: getAnswer
+    getAnswer: getAnswer,
+    isClicked: isClicked,
+    getRandomCountry: getRandomCountry
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_Result.default, {
-    correctAnswer: correctAnswer
+    correctAnswer: correctAnswer,
+    getRandomCountry: getRandomCountry
   }))));
 }
 
@@ -34075,7 +34082,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64765" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58040" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

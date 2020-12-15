@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
-export default function AboutCountry({randomCountry, questions, randomOption, answerBg, getAnswer}) {
-
+export default function AboutCountry({
+  randomCountry,
+  questions,
+  randomOption,
+  answerBg,
+  getAnswer,
+  isClicked,
+  getRandomCountry,
+}) {
   return (
     <div>
       {randomCountry && (
@@ -21,9 +27,9 @@ export default function AboutCountry({randomCountry, questions, randomOption, an
               randomOption.map((country) => {
                 return (
                   <button
-                    style={answerBg}
                     key={country?.name}
                     value={country?.name}
+                    id={country?.name}
                     onClick={getAnswer}
                   >
                     {country?.name}
@@ -31,9 +37,21 @@ export default function AboutCountry({randomCountry, questions, randomOption, an
                 );
               })}
           </form>
-          <Link to="/result">
-            <button className="nextBtn">Next</button>
-          </Link>
+          <div>
+            {isClicked ? (
+              <button
+                type="button"
+                onClick={getRandomCountry}
+                className="nextBtn"
+              >
+                Next
+              </button>
+            ) : (
+              <Link to="/result">
+                <button className="nextBtn">Next</button>
+              </Link>
+            )}
+          </div>
         </div>
       )}
     </div>
