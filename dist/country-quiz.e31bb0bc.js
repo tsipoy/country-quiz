@@ -33853,7 +33853,9 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"AboutCountry.js":[function(require,module,exports) {
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"undraw_adventure_4hum.svg":[function(require,module,exports) {
+module.exports = "/undraw_adventure_4hum.134ba6b2.svg";
+},{}],"AboutCountry.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33861,46 +33863,55 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = AboutCountry;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+var _undraw_adventure_4hum = _interopRequireDefault(require("./undraw_adventure_4hum.svg"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function AboutCountry({
   randomCountry,
   questions,
   randomOption,
-  answerBg,
   getAnswer,
   isClicked,
   getRandomCountry
 }) {
-  return /*#__PURE__*/_react.default.createElement("div", null, randomCountry && /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+    src: _undraw_adventure_4hum.default,
+    alt: "adventure",
+    className: "adventureImage"
+  }), randomCountry && /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, questions % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     src: randomCountry.flag,
     alt: randomCountry?.name
-  }), /*#__PURE__*/_react.default.createElement("h2", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOption && randomOption.map(country => {
+  }), /*#__PURE__*/_react.default.createElement("h2", {
+    className: "questions"
+  }, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", {
+    className: "questions"
+  }, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOption && randomOption.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
       key: country?.name,
       value: country?.name,
       id: country?.name,
       onClick: getAnswer
     }, country?.name);
-  })), /*#__PURE__*/_react.default.createElement("div", null, isClicked ? /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "nextBtn-wrapper"
+  }, isClicked ? /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: getRandomCountry,
-    className: "nextBtn"
+    className: "hiddenBtn"
   }, "Next") : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/result"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "nextBtn"
   }, "Next")))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"Result.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./undraw_adventure_4hum.svg":"undraw_adventure_4hum.svg"}],"Result.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33934,7 +33945,11 @@ function Result({
 
 var _default = Result;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"assets/check_circle_outline-24px.svg":[function(require,module,exports) {
+module.exports = "/check_circle_outline-24px.61cd99de.svg";
+},{}],"assets/highlight_off-24px.svg":[function(require,module,exports) {
+module.exports = "/highlight_off-24px.c128778f.svg";
+},{}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33950,6 +33965,10 @@ var _AboutCountry = _interopRequireDefault(require("./AboutCountry"));
 
 var _Result = _interopRequireDefault(require("./Result"));
 
+var _check_circle_outline24px = _interopRequireDefault(require("./assets/check_circle_outline-24px.svg"));
+
+var _highlight_off24px = _interopRequireDefault(require("./assets/highlight_off-24px.svg"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -33957,6 +33976,11 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 const allCountryUrl = "https://restcountries.eu/rest/v2/all";
+{
+  /* <i class="ri-close-circle-line"></i>
+     <i class="ri-checkbox-circle-line"></i>
+  */
+}
 
 function App() {
   const [allCountries, setAllCountries] = (0, _react.useState)([]);
@@ -33964,10 +33988,7 @@ function App() {
   const [randomOption, setRandomOption] = (0, _react.useState)([]);
   const [questions, setQwestions] = (0, _react.useState)(0);
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)(0);
-  const [isClicked, setIsClicked] = (0, _react.useState)(false);
-  const [answerBg, setAnswerBg] = (0, _react.useState)({
-    backgroundColor: "white"
-  });
+  const [isClicked, setIsClicked] = (0, _react.useState)(true);
 
   const getCountries = async () => {
     try {
@@ -33991,7 +34012,7 @@ function App() {
     const randomFourthOption = allCountries[Math.floor(Math.random() * allCountries.length)];
     const randomOptions = [randomFirstOption, randomSecondOption, randomThirdOption, randomFourthOption];
     setRandomOption(randomOptions);
-    setRandomCountry(randomFirstOption);
+    setRandomCountry(randomSecondOption);
   }
 
   (0, _react.useEffect)(() => {
@@ -34001,13 +34022,14 @@ function App() {
   function getAnswer(e) {
     e.preventDefault();
     const rightAnswer = randomCountry.name;
-    const guess = e.target.value;
-    console.log(guess);
-    document.getElementById(rightAnswer).style.backgroundColor = "#81c784";
+    const choices = e.target.value;
+    document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
+    document.getElementById(rightAnswer).style.color = "#ffff";
+    document.getElementById(rightAnswer).style.backgroundImage = "url('checked')";
 
-    if (rightAnswer === guess) {
+    if (rightAnswer === choices) {
       setCorrectAnswer(correctAnswer + 1);
-      setIsClicked(true);
+      setIsClicked(false);
       setAllCountries(allCountries);
     } else {
       e.target.classList.add("wrongAnswer");
@@ -34016,17 +34038,18 @@ function App() {
 
     setTimeout(() => {
       setQwestions(questions + 1);
-    }, 10000);
+    }, 30000);
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "main-content"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_AboutCountry.default, {
     randomCountry: randomCountry,
     questions: questions,
     randomOption: randomOption,
-    answerBg: answerBg,
     getAnswer: getAnswer,
     isClicked: isClicked,
     getRandomCountry: getRandomCountry
@@ -34040,7 +34063,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./AboutCountry":"AboutCountry.js","./Result":"Result.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./AboutCountry":"AboutCountry.js","./Result":"Result.js","./assets/check_circle_outline-24px.svg":"assets/check_circle_outline-24px.svg","./assets/highlight_off-24px.svg":"assets/highlight_off-24px.svg"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34082,7 +34105,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58040" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61698" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

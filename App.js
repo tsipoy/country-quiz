@@ -3,7 +3,14 @@ import { Route, Switch } from "react-router-dom";
 import AboutCountry from "./AboutCountry";
 import Result from "./Result";
 
+import checked from "./assets/check_circle_outline-24px.svg";
+import wrongChoice from './assets/highlight_off-24px.svg';
+
 const allCountryUrl = "https://restcountries.eu/rest/v2/all";
+
+{/* <i class="ri-close-circle-line"></i>
+    <i class="ri-checkbox-circle-line"></i>
+ */}
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
@@ -11,8 +18,7 @@ function App() {
   const [randomOption, setRandomOption] = useState([]);
   const [questions, setQwestions] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);
-  const [answerBg, setAnswerBg] = useState({ backgroundColor: "white" });
+  const [isClicked, setIsClicked] = useState(true);
 
   const getCountries = async () => {
     try {
@@ -45,7 +51,7 @@ function App() {
       randomFourthOption,
     ];
     setRandomOption(randomOptions);
-    setRandomCountry(randomFirstOption);
+    setRandomCountry(randomSecondOption);
   }
 
   useEffect(() => {
@@ -55,12 +61,16 @@ function App() {
   function getAnswer(e) {
     e.preventDefault();
     const rightAnswer = randomCountry.name;
-    const guess = e.target.value;
-    console.log(guess);
-    document.getElementById(rightAnswer).style.backgroundColor = "#81c784";
-    if (rightAnswer === guess) {
+    const choices = e.target.value;
+    
+    document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
+    document.getElementById(rightAnswer).style.color = "#ffff";
+    document.getElementById(rightAnswer).style.backgroundImage = "url('checked')";
+
+
+    if (rightAnswer === choices) {
       setCorrectAnswer(correctAnswer + 1);
-      setIsClicked(true);
+      setIsClicked(false);
       setAllCountries(allCountries);
     } else {
       e.target.classList.add("wrongAnswer")
@@ -68,20 +78,18 @@ function App() {
     }
     setTimeout(() => {
       setQwestions(questions + 1);
-    }, 10000);
+    }, 30000);
   }
 
   return (
-    <div>
+    <div className="main-content">
       <h1>Country Quiz</h1>
-
       <Switch>
         <Route exact path="/">
           <AboutCountry 
             randomCountry={randomCountry} 
             questions={questions}
             randomOption={randomOption}
-            answerBg={answerBg}
             getAnswer={getAnswer}
             isClicked={isClicked}
             getRandomCountry={getRandomCountry}

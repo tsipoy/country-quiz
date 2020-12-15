@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+
+import adventureImage from './undraw_adventure_4hum.svg';
+
 
 export default function AboutCountry({
   randomCountry,
   questions,
   randomOption,
-  answerBg,
   getAnswer,
   isClicked,
   getRandomCountry,
 }) {
   return (
     <div>
+      <img src={adventureImage} alt="adventure" className="adventureImage" />
       {randomCountry && (
         <div className="wrapper">
           {questions % 2 === 0 ? (
             <div>
               <img src={randomCountry.flag} alt={randomCountry?.name} />
-              <h2>Which country does this flag belong to?</h2>
+              <h2 className="questions">Which country does this flag belong to?</h2>
             </div>
           ) : (
-            <h2>{randomCountry.capital} is the capital of?</h2>
+            <h2 className="questions">{randomCountry.capital} is the capital of?</h2>
           )}
           <form>
             {randomOption &&
@@ -37,20 +40,20 @@ export default function AboutCountry({
                 );
               })}
           </form>
-          <div>
-            {isClicked ? (
+          <div className="nextBtn-wrapper">
+            {isClicked ?
               <button
                 type="button"
                 onClick={getRandomCountry}
-                className="nextBtn"
+                className="hiddenBtn"
               >
                 Next
               </button>
-            ) : (
+            :
               <Link to="/result">
                 <button className="nextBtn">Next</button>
               </Link>
-            )}
+            }
           </div>
         </div>
       )}
