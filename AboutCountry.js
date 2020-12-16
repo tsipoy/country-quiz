@@ -12,6 +12,8 @@ export default function AboutCountry({
   isClicked,
   getRandomCountry,
 }) {
+
+
   return (
     <div>
       <img src={adventureImage} alt="adventure" className="adventureImage" />
@@ -45,7 +47,7 @@ export default function AboutCountry({
               <button
                 type="button"
                 onClick={getRandomCountry}
-                className="hiddenBtn"
+                className="nextBtn"
               >
                 Next
               </button>

@@ -33904,7 +33904,7 @@ function AboutCountry({
   }, isClicked ? /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: getRandomCountry,
-    className: "hiddenBtn"
+    className: "nextBtn"
   }, "Next") : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/result"
   }, /*#__PURE__*/_react.default.createElement("button", {
@@ -33945,11 +33945,7 @@ function Result({
 
 var _default = Result;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"assets/check_circle_outline-24px.svg":[function(require,module,exports) {
-module.exports = "/check_circle_outline-24px.61cd99de.svg";
-},{}],"assets/highlight_off-24px.svg":[function(require,module,exports) {
-module.exports = "/highlight_off-24px.c128778f.svg";
-},{}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33964,10 +33960,6 @@ var _reactRouterDom = require("react-router-dom");
 var _AboutCountry = _interopRequireDefault(require("./AboutCountry"));
 
 var _Result = _interopRequireDefault(require("./Result"));
-
-var _check_circle_outline24px = _interopRequireDefault(require("./assets/check_circle_outline-24px.svg"));
-
-var _highlight_off24px = _interopRequireDefault(require("./assets/highlight_off-24px.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33988,7 +33980,7 @@ function App() {
   const [randomOption, setRandomOption] = (0, _react.useState)([]);
   const [questions, setQwestions] = (0, _react.useState)(0);
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)(0);
-  const [isClicked, setIsClicked] = (0, _react.useState)(true);
+  const [isClicked, setIsClicked] = (0, _react.useState)(false);
 
   const getCountries = async () => {
     try {
@@ -34025,11 +34017,11 @@ function App() {
     const choices = e.target.value;
     document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
     document.getElementById(rightAnswer).style.color = "#ffff";
-    document.getElementById(rightAnswer).style.backgroundImage = "url('checked')";
 
     if (rightAnswer === choices) {
+      // e.target.classList.add("rightAnswer")
       setCorrectAnswer(correctAnswer + 1);
-      setIsClicked(false);
+      setIsClicked(true);
       setAllCountries(allCountries);
     } else {
       e.target.classList.add("wrongAnswer");
@@ -34063,7 +34055,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./AboutCountry":"AboutCountry.js","./Result":"Result.js","./assets/check_circle_outline-24px.svg":"assets/check_circle_outline-24px.svg","./assets/highlight_off-24px.svg":"assets/highlight_off-24px.svg"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./AboutCountry":"AboutCountry.js","./Result":"Result.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34105,7 +34097,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61698" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56058" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

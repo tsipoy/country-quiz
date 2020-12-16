@@ -98,9 +98,37 @@ button:hover {
     transition: .2s;
 }
 
+/* .rightAnswer {
+    background-color: #60BF88;
+    color: #ffff;
+    background-image: url('./assets/check_circle_outline-24px.svg');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+.rightAnswer:hover {
+    background-color: #60BF88;
+    color: #ffff;
+} */
+
+
 .wrongAnswer {
     background-color:#EA8282;
     color: #fff;
+    background-image: url('/highlight_off-24px.c128778f.svg');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+.wrongAnswer:hover {
+    background-color:#EA8282;
+    color: #fff;   
+}
+
+svg {
+    fill: white;
 }
 
 .hiddenBtn {

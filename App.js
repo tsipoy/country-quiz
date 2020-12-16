@@ -3,8 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import AboutCountry from "./AboutCountry";
 import Result from "./Result";
 
-import checked from "./assets/check_circle_outline-24px.svg";
-import wrongChoice from './assets/highlight_off-24px.svg';
 
 const allCountryUrl = "https://restcountries.eu/rest/v2/all";
 
@@ -18,7 +16,7 @@ function App() {
   const [randomOption, setRandomOption] = useState([]);
   const [questions, setQwestions] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
-  const [isClicked, setIsClicked] = useState(true);
+  const [isClicked, setIsClicked] = useState(false);
 
   const getCountries = async () => {
     try {
@@ -37,7 +35,7 @@ function App() {
 
   function getRandomCountry() {
     const randomFirstOption =
-      allCountries[Math.floor(Math.random() * allCountries.length)];
+      allCountries[Math.floor(Math.random() * allCountries.length )];
     const randomSecondOption =
       allCountries[Math.floor(Math.random() * allCountries.length)];
     const randomThirdOption =
@@ -65,12 +63,11 @@ function App() {
     
     document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
     document.getElementById(rightAnswer).style.color = "#ffff";
-    document.getElementById(rightAnswer).style.backgroundImage = "url('checked')";
-
 
     if (rightAnswer === choices) {
+      // e.target.classList.add("rightAnswer")
       setCorrectAnswer(correctAnswer + 1);
-      setIsClicked(false);
+      setIsClicked(true);
       setAllCountries(allCountries);
     } else {
       e.target.classList.add("wrongAnswer")
