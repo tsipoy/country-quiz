@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Result({correctAnswer, getRandomCountry}) {
+    console.log(correctAnswer);
     return (
         <>
         <div className="result ">

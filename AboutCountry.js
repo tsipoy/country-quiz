@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import adventureImage from './undraw_adventure_4hum.svg';
-
+import adventureImage from "./undraw_adventure_4hum.svg";
 
 export default function AboutCountry({
   randomCountry,
@@ -12,8 +11,6 @@ export default function AboutCountry({
   isClicked,
   getRandomCountry,
 }) {
-
-
   return (
     <div>
       <img src={adventureImage} alt="adventure" className="adventureImage" />
@@ -22,16 +19,21 @@ export default function AboutCountry({
           {questions % 2 === 0 ? (
             <div>
               <img src={randomCountry.flag} alt={randomCountry?.name} />
-              <h2 className="questions">Which country does this flag belong to?</h2>
+              <h2 className="questions">
+                Which country does this flag belong to?
+              </h2>
             </div>
           ) : (
-            <h2 className="questions">{randomCountry.capital} is the capital of?</h2>
+            <h2 className="questions">
+              {randomCountry.capital} is the capital of?
+            </h2>
           )}
           <form>
             {randomOption &&
               randomOption.map((country) => {
                 return (
                   <button
+                    className="name"
                     key={country?.name}
                     value={country?.name}
                     id={country?.name}
@@ -43,7 +45,7 @@ export default function AboutCountry({
               })}
           </form>
           <div className="nextBtn-wrapper">
-            {isClicked ?
+            {isClicked ? (
               <button
                 type="button"
                 onClick={getRandomCountry}
@@ -51,11 +53,11 @@ export default function AboutCountry({
               >
                 Next
               </button>
-            :
+            ) : (
               <Link to="/result">
                 <button className="nextBtn">Next</button>
               </Link>
-            }
+            )}
           </div>
         </div>
       )}

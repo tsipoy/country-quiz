@@ -98,15 +98,16 @@ button:hover {
     transition: .2s;
 }
 
-/* .rightAnswer {
-    background-color: #60BF88;
+.rightAnswer {
+    /* background-color: #60BF88; */
     color: #ffff;
-    background-image: url('./assets/check_circle_outline-24px.svg');
+    background-image: url('/check_circle_outline-24px.61cd99de.svg');
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: center;
 }
 
+/*
 .rightAnswer:hover {
     background-color: #60BF88;
     color: #ffff;
@@ -216,6 +217,32 @@ a {
     text-decoration: none;
 }
 
+.name:nth-of-type(1)::before {
+    content: " A ";
+    padding-inline-end: 32px;
+    padding-inline-start: 32px;
+    font-size: 24px;
+}
 
+.name:nth-of-type(2)::before {
+    content: " B ";
+    padding-inline-end: 32px;
+    padding-inline-start: 32px;
+    font-size: 24px;
+}
+
+.name:nth-of-type(3)::before {
+    content: " C ";
+    padding-inline-end: 32px;
+    padding-inline-start: 32px;
+    font-size: 24px;
+}
+
+.name:nth-of-type(4)::before {
+    content: " D ";
+    padding-inline-end: 32px;
+    padding-inline-start: 32px;
+    font-size: 24px;
+}
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

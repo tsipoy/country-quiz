@@ -33894,6 +33894,7 @@ function AboutCountry({
     className: "questions"
   }, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOption && randomOption.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
+      className: "name",
       key: country?.name,
       value: country?.name,
       id: country?.name,
@@ -33931,6 +33932,7 @@ function Result({
   correctAnswer,
   getRandomCountry
 }) {
+  console.log(correctAnswer);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "result "
   }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("h4", null, "You got ", /*#__PURE__*/_react.default.createElement("span", {
@@ -34019,7 +34021,7 @@ function App() {
     document.getElementById(rightAnswer).style.color = "#ffff";
 
     if (rightAnswer === choices) {
-      // e.target.classList.add("rightAnswer")
+      e.target.classList.add("rightAnswer");
       setCorrectAnswer(correctAnswer + 1);
       setIsClicked(true);
       setAllCountries(allCountries);
@@ -34097,7 +34099,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56058" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50010" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

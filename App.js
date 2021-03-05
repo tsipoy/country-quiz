@@ -65,7 +65,7 @@ function App() {
     document.getElementById(rightAnswer).style.color = "#ffff";
 
     if (rightAnswer === choices) {
-      // e.target.classList.add("rightAnswer")
+      e.target.classList.add("rightAnswer")
       setCorrectAnswer(correctAnswer + 1);
       setIsClicked(true);
       setAllCountries(allCountries);
