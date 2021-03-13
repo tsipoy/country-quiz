@@ -244,3 +244,13 @@ a {
     padding-inline-start: 32px;
     font-size: 24px;
 }
+
+@media(max-width: 500px) {
+    .adventureImage {
+        top: 8%;
+    }
+
+    h1 {
+        max-width: 100px;
+    }
+}

@@ -245,4 +245,14 @@ a {
     font-size: 24px;
 }
 
+@media(max-width: 500px) {
+    .adventureImage {
+        top: 8%;
+    }
+
+    h1 {
+        max-width: 100px;
+    }
+}
+
 /*# sourceMappingURL=/style.e308ff8e.css.map */

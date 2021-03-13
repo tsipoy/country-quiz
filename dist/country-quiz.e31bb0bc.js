@@ -33877,7 +33877,8 @@ function AboutCountry({
   randomOption,
   getAnswer,
   isClicked,
-  getRandomCountry
+  getRandomCountry,
+  isDisabled
 }) {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     src: _undraw_adventure_4hum.default,
@@ -33898,7 +33899,8 @@ function AboutCountry({
       key: country?.name,
       value: country?.name,
       id: country?.name,
-      onClick: getAnswer
+      onClick: getAnswer,
+      disabled: isDisabled
     }, country?.name);
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "nextBtn-wrapper"
@@ -33983,11 +33985,13 @@ function App() {
   const [questions, setQwestions] = (0, _react.useState)(0);
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)(0);
   const [isClicked, setIsClicked] = (0, _react.useState)(false);
+  const [isDisabled, setIsDisabled] = (0, _react.useState)(false);
 
   const getCountries = async () => {
     try {
       const response = await fetch(allCountryUrl);
       const data = await response.json();
+      console.log(data);
       setAllCountries(data);
       setRandomCountry(data);
     } catch (error) {
@@ -34007,6 +34011,7 @@ function App() {
     const randomOptions = [randomFirstOption, randomSecondOption, randomThirdOption, randomFourthOption];
     setRandomOption(randomOptions);
     setRandomCountry(randomSecondOption);
+    setIsDisabled(false);
   }
 
   (0, _react.useEffect)(() => {
@@ -34025,9 +34030,11 @@ function App() {
       setCorrectAnswer(correctAnswer + 1);
       setIsClicked(true);
       setAllCountries(allCountries);
+      setIsDisabled(true);
     } else {
       e.target.classList.add("wrongAnswer");
       setIsClicked(false);
+      setIsDisabled(true);
     }
 
     setTimeout(() => {
@@ -34046,7 +34053,8 @@ function App() {
     randomOption: randomOption,
     getAnswer: getAnswer,
     isClicked: isClicked,
-    getRandomCountry: getRandomCountry
+    getRandomCountry: getRandomCountry,
+    isDisabled: isDisabled
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_Result.default, {
@@ -34099,7 +34107,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50010" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50512" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

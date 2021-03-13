@@ -17,11 +17,13 @@ function App() {
   const [questions, setQwestions] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
+  const [ isDisabled, setIsDisabled ] = useState(false);
 
   const getCountries = async () => {
     try {
       const response = await fetch(allCountryUrl);
       const data = await response.json();
+      console.log(data);
       setAllCountries(data);
       setRandomCountry(data);
     } catch (error) {
@@ -50,6 +52,7 @@ function App() {
     ];
     setRandomOption(randomOptions);
     setRandomCountry(randomSecondOption);
+    setIsDisabled(false);
   }
 
   useEffect(() => {
@@ -69,9 +72,11 @@ function App() {
       setCorrectAnswer(correctAnswer + 1);
       setIsClicked(true);
       setAllCountries(allCountries);
+      setIsDisabled(true);
     } else {
       e.target.classList.add("wrongAnswer")
       setIsClicked(false);
+      setIsDisabled(true);
     }
     setTimeout(() => {
       setQwestions(questions + 1);
@@ -90,6 +95,7 @@ function App() {
             getAnswer={getAnswer}
             isClicked={isClicked}
             getRandomCountry={getRandomCountry}
+            isDisabled={isDisabled}
         />
         </Route>
         <Route path="/result">

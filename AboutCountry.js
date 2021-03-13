@@ -10,6 +10,7 @@ export default function AboutCountry({
   getAnswer,
   isClicked,
   getRandomCountry,
+  isDisabled
 }) {
   return (
     <div>
@@ -38,6 +39,7 @@ export default function AboutCountry({
                     value={country?.name}
                     id={country?.name}
                     onClick={getAnswer}
+                    disabled={isDisabled}
                   >
                     {country?.name}
                   </button>
