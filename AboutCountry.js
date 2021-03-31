@@ -10,7 +10,8 @@ export default function AboutCountry({
   getAnswer,
   isClicked,
   getRandomCountry,
-  isDisabled
+  isDisabled,
+  isOpened,
 }) {
   return (
     <div>
@@ -19,7 +20,7 @@ export default function AboutCountry({
         <div className="wrapper">
           {questions % 2 === 0 ? (
             <div>
-              <img src={randomCountry.flag} alt={randomCountry?.name} />
+              <img src={randomCountry.flag} alt={randomCountry?.name}className="flag"/>
               <h2 className="questions">
                 Which country does this flag belong to?
               </h2>
@@ -46,21 +47,23 @@ export default function AboutCountry({
                 );
               })}
           </form>
-          <div className="nextBtn-wrapper">
-            {isClicked ? (
-              <button
-                type="button"
-                onClick={getRandomCountry}
-                className="nextBtn"
-              >
-                Next
-              </button>
-            ) : (
-              <Link to="/result">
-                <button className="nextBtn">Next</button>
-              </Link>
-            )}
-          </div>
+          {isOpened && (
+            <div className="nextBtn-wrapper">
+              {isClicked ? (
+                <button
+                  type="button"
+                  onClick={getRandomCountry}
+                  className="nextBtn"
+                >
+                  Next
+                </button>
+              ) : (
+                <Link to="/result">
+                  <button className="nextBtn">Next</button>
+                </Link>
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -33878,7 +33878,8 @@ function AboutCountry({
   getAnswer,
   isClicked,
   getRandomCountry,
-  isDisabled
+  isDisabled,
+  isOpened
 }) {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     src: _undraw_adventure_4hum.default,
@@ -33888,7 +33889,8 @@ function AboutCountry({
     className: "wrapper"
   }, questions % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     src: randomCountry.flag,
-    alt: randomCountry?.name
+    alt: randomCountry?.name,
+    className: "flag"
   }), /*#__PURE__*/_react.default.createElement("h2", {
     className: "questions"
   }, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", {
@@ -33902,7 +33904,7 @@ function AboutCountry({
       onClick: getAnswer,
       disabled: isDisabled
     }, country?.name);
-  })), /*#__PURE__*/_react.default.createElement("div", {
+  })), isOpened && /*#__PURE__*/_react.default.createElement("div", {
     className: "nextBtn-wrapper"
   }, isClicked ? /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
@@ -33972,11 +33974,6 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 const allCountryUrl = "https://restcountries.eu/rest/v2/all";
-{
-  /* <i class="ri-close-circle-line"></i>
-     <i class="ri-checkbox-circle-line"></i>
-  */
-}
 
 function App() {
   const [allCountries, setAllCountries] = (0, _react.useState)([]);
@@ -33985,6 +33982,7 @@ function App() {
   const [questions, setQwestions] = (0, _react.useState)(0);
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)(0);
   const [isClicked, setIsClicked] = (0, _react.useState)(false);
+  const [isOpened, setIsOpened] = (0, _react.useState)(false);
   const [isDisabled, setIsDisabled] = (0, _react.useState)(false);
 
   const getCountries = async () => {
@@ -34012,6 +34010,7 @@ function App() {
     setRandomOption(randomOptions);
     setRandomCountry(randomSecondOption);
     setIsDisabled(false);
+    setIsOpened(false);
   }
 
   (0, _react.useEffect)(() => {
@@ -34027,19 +34026,23 @@ function App() {
 
     if (rightAnswer === choices) {
       e.target.classList.add("rightAnswer");
+      e.target.classList.add("checkRight");
       setCorrectAnswer(correctAnswer + 1);
       setIsClicked(true);
       setAllCountries(allCountries);
       setIsDisabled(true);
     } else {
       e.target.classList.add("wrongAnswer");
+      e.target.classList.add("rightAnswer");
+      e.target.classList.add("checkWrong");
       setIsClicked(false);
       setIsDisabled(true);
     }
 
+    setIsOpened(true);
     setTimeout(() => {
       setQwestions(questions + 1);
-    }, 30000);
+    }, 60000);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -34054,7 +34057,8 @@ function App() {
     getAnswer: getAnswer,
     isClicked: isClicked,
     getRandomCountry: getRandomCountry,
-    isDisabled: isDisabled
+    isDisabled: isDisabled,
+    isOpened: isOpened
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_Result.default, {
@@ -34107,7 +34111,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50512" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62239" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

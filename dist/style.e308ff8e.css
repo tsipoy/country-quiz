@@ -17,8 +17,7 @@ html {
 
 .main-content {
     position: relative;
-    max-width: 500px;
-    margin: auto;
+    margin-block-end: 2rem;
 }
 
 .adventureImage {
@@ -34,13 +33,12 @@ img {
 }
 
 .wrapper {
-    max-width: 500px;
-    margin: auto;
     background-color: white;
     padding: 32px;
     margin-block-end: 32px;
-    padding-block-start: 80px;
-    padding-block-end: 6px;
+    padding-block-start: 64px;
+    padding-block-end: 9px;
+    margin-inline-end: 34px;
     border-radius: 24px;
 }
 
@@ -72,17 +70,23 @@ h4 {
     margin-block-start: -20px;
 }
 
+.flag {
+    width: 84px;
+    height: 54px;
+}
+
 .questions {
     font-size: 24px;
     line-height: 36px;
+    padding-inline-end: 16px;
 }
 
 button {
     font-size: 18px;
     line-height: 27px;
-    padding-block-start: 15px;
-    padding-block-end: 16px;
-    width: 100%;
+    padding-block-start: 12px;
+    padding-block-end: 13px;
+    width: 93%;
     text-align: start;
     border-radius: 12px;
     margin-block-end: 25px;
@@ -94,38 +98,42 @@ button {
 button:hover {
     background-color: #F9A826;
     color: white;
-    border-color: white;
+    border: 2px solid #ffffff;
     transition: .2s;
+}
+
+.wrapper form {
+    padding-block-start: 7px;
 }
 
 .rightAnswer {
     /* background-color: #60BF88; */
     color: #ffff;
-    background-image: url('/check_circle_outline-24px.61cd99de.svg');
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: center;
+    border: 2px solid #ffffff;
 }
 
-/*
-.rightAnswer:hover {
-    background-color: #60BF88;
-    color: #ffff;
+/* .checkRight {
+    background-image: url('./assets/check_circle_outline-24px.svg');
+    background-repeat: no-repeat;
+    background-position: 95%;
 } */
 
 
 .wrongAnswer {
     background-color:#EA8282;
     color: #fff;
-    background-image: url('/highlight_off-24px.c128778f.svg');
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: center;
+    border: 2px solid #ffffff;
 }
+
+/* .checkWrong {
+    background-image: url('./assets/highlight_off-24px.svg');
+    background-repeat: no-repeat;
+    background-position: 50px;
+} */
 
 .wrongAnswer:hover {
     background-color:#EA8282;
-    color: #fff;   
+    color: #ffffff;
 }
 
 svg {
@@ -158,22 +166,25 @@ span {
 }
 
 .nextBtn {
-    /* position: absolute;
-    right: 0; */
     font-weight: bold;
     font-size: 18px;
     line-height: 27px;
     color: #FFFFFF;
-    padding-block-start: 15px;
-    padding-block-end: 14px;
+    padding-block-start: 13px;
+    padding-block-end: 12px;
     padding-inline-start: 37px;
     padding-inline-end: 37px;
-    margin-block-start: -7px;
+    margin-block-start: -2px;
+    margin-inline-end: 36px;
     width: auto;
     background-color: #F9A826;
     box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
     border-radius: 12px;
-    border: none;
+    border: 2px solid #F9A826;
+}
+
+.nextBtn:hover {
+    border: 2px solid #F9A826;
 }
 
 .result {
@@ -219,39 +230,59 @@ a {
 
 .name:nth-of-type(1)::before {
     content: " A ";
-    padding-inline-end: 32px;
-    padding-inline-start: 32px;
+    padding-inline-end: 39px;
+    padding-inline-start: 11px;
     font-size: 24px;
 }
 
 .name:nth-of-type(2)::before {
     content: " B ";
-    padding-inline-end: 32px;
-    padding-inline-start: 32px;
+    padding-inline-end: 39px;
+    padding-inline-start: 11px;
     font-size: 24px;
 }
 
 .name:nth-of-type(3)::before {
     content: " C ";
-    padding-inline-end: 32px;
-    padding-inline-start: 32px;
+    padding-inline-end: 39px;
+    padding-inline-start: 11px;
     font-size: 24px;
 }
 
 .name:nth-of-type(4)::before {
     content: " D ";
-    padding-inline-end: 32px;
-    padding-inline-start: 32px;
+    padding-inline-end: 39px;
+    padding-inline-start: 11px;
     font-size: 24px;
 }
 
 @media(max-width: 500px) {
+    .wrapper {
+        max-width: 464px;
+        margin: auto;
+    }
+
     .adventureImage {
         top: 8%;
     }
-
+    
     h1 {
         max-width: 100px;
+    }
+}
+
+@media(min-width: 500px) { 
+    #root {
+        max-width: 488px;
+        margin: auto;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+    }
+
+    .wrapper {
+        max-width: 464px;
+        margin: auto;
+        padding-inline-end: 0;
     }
 }
 

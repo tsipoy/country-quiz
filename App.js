@@ -6,10 +6,6 @@ import Result from "./Result";
 
 const allCountryUrl = "https://restcountries.eu/rest/v2/all";
 
-{/* <i class="ri-close-circle-line"></i>
-    <i class="ri-checkbox-circle-line"></i>
- */}
-
 function App() {
   const [allCountries, setAllCountries] = useState([]);
   const [randomCountry, setRandomCountry] = useState({});
@@ -17,6 +13,7 @@ function App() {
   const [questions, setQwestions] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
   const [ isDisabled, setIsDisabled ] = useState(false);
 
   const getCountries = async () => {
@@ -53,6 +50,7 @@ function App() {
     setRandomOption(randomOptions);
     setRandomCountry(randomSecondOption);
     setIsDisabled(false);
+    setIsOpened(false)
   }
 
   useEffect(() => {
@@ -69,18 +67,22 @@ function App() {
 
     if (rightAnswer === choices) {
       e.target.classList.add("rightAnswer")
+      e.target.classList.add("checkRight")
       setCorrectAnswer(correctAnswer + 1);
       setIsClicked(true);
       setAllCountries(allCountries);
       setIsDisabled(true);
     } else {
       e.target.classList.add("wrongAnswer")
+      e.target.classList.add("rightAnswer")
+      e.target.classList.add("checkWrong")
       setIsClicked(false);
       setIsDisabled(true);
     }
+    setIsOpened(true)
     setTimeout(() => {
       setQwestions(questions + 1);
-    }, 30000);
+    }, 60000);
   }
 
   return (
@@ -96,6 +98,7 @@ function App() {
             isClicked={isClicked}
             getRandomCountry={getRandomCountry}
             isDisabled={isDisabled}
+            isOpened={isOpened}
         />
         </Route>
         <Route path="/result">
