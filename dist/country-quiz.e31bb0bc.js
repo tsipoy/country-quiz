@@ -33881,6 +33881,9 @@ function AboutCountry({
   isDisabled,
   isOpened
 }) {
+  const sortedArray = randomOption.sort(function (a, b) {
+    return a?.name.localeCompare(b?.name);
+  });
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     src: _undraw_adventure_4hum.default,
     alt: "adventure",
@@ -33895,7 +33898,7 @@ function AboutCountry({
     className: "questions"
   }, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", {
     className: "questions"
-  }, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOption && randomOption.map(country => {
+  }, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOption && sortedArray.map(country => {
     return /*#__PURE__*/_react.default.createElement("button", {
       className: "name",
       key: country?.name,
@@ -34020,9 +34023,11 @@ function App() {
   function getAnswer(e) {
     e.preventDefault();
     const rightAnswer = randomCountry.name;
-    const choices = e.target.value;
-    document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
-    document.getElementById(rightAnswer).style.color = "#ffff";
+    const choices = e.target.value; // document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
+    // document.getElementById(rightAnswer).style.color = "#ffffff";
+
+    document.getElementById(rightAnswer).classList.add("rightAnswer");
+    document.getElementById(rightAnswer).classList.add("checkRight");
 
     if (rightAnswer === choices) {
       e.target.classList.add("rightAnswer");
@@ -34033,7 +34038,6 @@ function App() {
       setIsDisabled(true);
     } else {
       e.target.classList.add("wrongAnswer");
-      e.target.classList.add("rightAnswer");
       e.target.classList.add("checkWrong");
       setIsClicked(false);
       setIsDisabled(true);

@@ -13,6 +13,9 @@ export default function AboutCountry({
   isDisabled,
   isOpened,
 }) {
+  const sortedArray = randomOption.sort(function (a, b) {
+    return a?.name.localeCompare(b?.name);
+  })
   return (
     <div>
       <img src={adventureImage} alt="adventure" className="adventureImage" />
@@ -32,7 +35,7 @@ export default function AboutCountry({
           )}
           <form>
             {randomOption &&
-              randomOption.map((country) => {
+              sortedArray.map((country) => {
                 return (
                   <button
                     className="name"

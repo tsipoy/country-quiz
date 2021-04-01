@@ -14,7 +14,7 @@ function App() {
   const [correctAnswer, setCorrectAnswer] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
-  const [ isDisabled, setIsDisabled ] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const getCountries = async () => {
     try {
@@ -62,20 +62,21 @@ function App() {
     const rightAnswer = randomCountry.name;
     const choices = e.target.value;
     
-    document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
-    document.getElementById(rightAnswer).style.color = "#ffff";
+    // document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
+    // document.getElementById(rightAnswer).style.color = "#ffffff";
+    document.getElementById(rightAnswer).classList.add("rightAnswer");
+    document.getElementById(rightAnswer).classList.add("checkRight");
 
     if (rightAnswer === choices) {
-      e.target.classList.add("rightAnswer")
-      e.target.classList.add("checkRight")
+      e.target.classList.add("rightAnswer");
+      e.target.classList.add("checkRight");
       setCorrectAnswer(correctAnswer + 1);
       setIsClicked(true);
       setAllCountries(allCountries);
       setIsDisabled(true);
     } else {
-      e.target.classList.add("wrongAnswer")
-      e.target.classList.add("rightAnswer")
-      e.target.classList.add("checkWrong")
+      e.target.classList.add("wrongAnswer");
+      e.target.classList.add("checkWrong");
       setIsClicked(false);
       setIsDisabled(true);
     }
