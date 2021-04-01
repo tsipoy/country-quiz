@@ -15,6 +15,10 @@ html {
     padding-inline-end: 20px;
 }
 
+button {
+    cursor: pointer;
+}
+
 .main-content {
     position: relative;
     margin-block-end: 2rem;
@@ -54,6 +58,7 @@ h1 {
 h2 {
     font-size: 48px;
     line-height: 72px;
+    padding-block-start: 30px;
 }
 
 h3 {
@@ -66,7 +71,7 @@ h4 {
     font-weight: normal;
     font-size: 18px;
     line-height: 27px;
-    padding-block-end: 71px;
+    padding-block-end: 60px;
     margin-block-start: -20px;
 }
 
@@ -190,8 +195,8 @@ span {
 .result {
     background-image: url('./undraw_winners_ao2o.svg');
     background-repeat: no-repeat;
-    background-position: top;
-    background-position-y: 34px;
+    background-position: 50%;
+    background-position-y: 10%;
     max-width: 400px;
     margin: auto;
     background-color: white;
@@ -204,17 +209,18 @@ span {
 
 .resultBtn {
     font-size: 18px;
+    font-weight: 600;
     line-height: 27px;
     padding-block-start: 18px;
     padding-block-end: 17px;
     width: auto;
     text-align: start;
     border-radius: 12px;
-    margin-block-end: 25px;
+    margin-block-end: -1px;
     background-color: white;
     border: 2px solid #1D355D;
-    padding-inline-end: 61px;
-    padding-inline-start: 61px;
+    padding-inline-end: 64px;
+    padding-inline-start: 63px;
     color:  #1D355D;
 }
 
