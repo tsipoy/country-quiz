@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import AboutCountry from "./AboutCountry";
 import Result from "./Result";
 
-
 const allCountryUrl = "https://restcountries.eu/rest/v2/all";
 
 function App() {
@@ -33,24 +32,31 @@ function App() {
   }, []);
 
   function getRandomCountry() {
+    const randomAnswerOption = allCountries[Math.floor(Math.random() * allCountries.length)];
+    
     const randomFirstOption =
-      allCountries[Math.floor(Math.random() * allCountries.length )];
+      allCountries[Math.floor(Math.random() * allCountries.length)];
     const randomSecondOption =
       allCountries[Math.floor(Math.random() * allCountries.length)];
     const randomThirdOption =
       allCountries[Math.floor(Math.random() * allCountries.length)];
-    const randomFourthOption =
+    let randomFourthOption =
       allCountries[Math.floor(Math.random() * allCountries.length)];
+
+    if(randomThirdOption === randomFourthOption) {
+      randomFourthOption = randomAnswerOption;
+    }  
     const randomOptions = [
       randomFirstOption,
       randomSecondOption,
       randomThirdOption,
       randomFourthOption,
     ];
+    console.log(randomOptions)
     setRandomOption(randomOptions);
     setRandomCountry(randomSecondOption);
     setIsDisabled(false);
-    setIsOpened(false)
+    setIsOpened(false);
   }
 
   useEffect(() => {
@@ -61,7 +67,7 @@ function App() {
     e.preventDefault();
     const rightAnswer = randomCountry.name;
     const choices = e.target.value;
-    
+
     // document.getElementById(rightAnswer).style.backgroundColor = "#60BF88";
     // document.getElementById(rightAnswer).style.color = "#ffffff";
     document.getElementById(rightAnswer).classList.add("rightAnswer");
@@ -80,7 +86,7 @@ function App() {
       setIsClicked(false);
       setIsDisabled(true);
     }
-    setIsOpened(true)
+    setIsOpened(true);
     setTimeout(() => {
       setQwestions(questions + 1);
     }, 60000);
@@ -91,8 +97,8 @@ function App() {
       <h1>Country Quiz</h1>
       <Switch>
         <Route exact path="/">
-          <AboutCountry 
-            randomCountry={randomCountry} 
+          <AboutCountry
+            randomCountry={randomCountry}
             questions={questions}
             randomOption={randomOption}
             getAnswer={getAnswer}
@@ -100,10 +106,10 @@ function App() {
             getRandomCountry={getRandomCountry}
             isDisabled={isDisabled}
             isOpened={isOpened}
-        />
+          />
         </Route>
         <Route path="/result">
-          <Result 
+          <Result
             correctAnswer={correctAnswer}
             getRandomCountry={getRandomCountry}
           />

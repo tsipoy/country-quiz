@@ -34005,11 +34005,18 @@ function App() {
   }, []);
 
   function getRandomCountry() {
+    const randomAnswerOption = allCountries[Math.floor(Math.random() * allCountries.length)];
     const randomFirstOption = allCountries[Math.floor(Math.random() * allCountries.length)];
     const randomSecondOption = allCountries[Math.floor(Math.random() * allCountries.length)];
     const randomThirdOption = allCountries[Math.floor(Math.random() * allCountries.length)];
-    const randomFourthOption = allCountries[Math.floor(Math.random() * allCountries.length)];
+    let randomFourthOption = allCountries[Math.floor(Math.random() * allCountries.length)];
+
+    if (randomThirdOption === randomFourthOption) {
+      randomFourthOption = randomAnswerOption;
+    }
+
     const randomOptions = [randomFirstOption, randomSecondOption, randomThirdOption, randomFourthOption];
+    console.log(randomOptions);
     setRandomOption(randomOptions);
     setRandomCountry(randomSecondOption);
     setIsDisabled(false);
@@ -34115,7 +34122,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64743" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52063" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
