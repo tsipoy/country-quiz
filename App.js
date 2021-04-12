@@ -19,7 +19,6 @@ function App() {
     try {
       const response = await fetch(allCountryUrl);
       const data = await response.json();
-      console.log(data);
       setAllCountries(data);
       setRandomCountry(data);
     } catch (error) {
@@ -52,7 +51,6 @@ function App() {
       randomThirdOption,
       randomFourthOption,
     ];
-    console.log(randomOptions)
     setRandomOption(randomOptions);
     setRandomCountry(randomSecondOption);
     setIsDisabled(false);
