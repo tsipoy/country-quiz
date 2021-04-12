@@ -102,11 +102,21 @@ button {
     border: 2px solid rgba(96, 102, 208, 0.7);
 }
 
+
 button:hover:not(.rightAnswer, .wrongAnswer, .nextBtn, .resultBtn) {
     background-color: #F9A826;
     color: white;
     border: 2px solid #ffffff;
     transition: .2s;
+}
+button[disabled]:hover {
+    cursor: not-allowed;
+}
+
+button[disabled]:hover:not(.rightAnswer, .wrongAnswer) { 
+    background-color: white;
+    color: rgba(96, 102, 208, 0.8);
+    border: 2px solid rgba(96, 102, 208, 0.7);
 }
 
 .wrapper form {
