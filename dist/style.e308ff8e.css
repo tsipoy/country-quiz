@@ -78,6 +78,7 @@ h4 {
 .flag {
     width: 84px;
     height: 54px;
+    margin-block-end: -16px;
 }
 
 .questions {
